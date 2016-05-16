@@ -1,0 +1,81 @@
+// Curtain
+@mixin curtain($position: fixed) {
+  background-color: rgba($background, 0.9);
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: $position;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+.curtain {
+  @include curtain;
+}
+
+// Modals
+@mixin modal {
+  @include horizontal-center;
+  background-color: $foreground;
+  display: none;
+  max-width: $phone;
+  padding: 60px;
+  top: $double-space;
+  width: 100%;
+  z-index: 10;
+
+  // Secondary Mobile - Phone & Below
+  @media screen and (max-width: $phone){
+    top: 0;
+  } // End Secondary Mobile
+}
+
+.modal {
+  @include modal;
+}
+
+.brand {
+  height: 100%;
+  left: 0;
+  max-height: 730px;
+  padding: 2.5% 2.5% 8% $double-space;
+  position: fixed;
+  top: 0;
+  width: 200px;
+
+  svg {
+    height: 100%;
+    width: 100%;
+
+    &, use.logo-use {
+      fill: #e0e0e0;
+    }
+  }
+}
+
+video {
+  bottom: 0;
+  height: auto;
+  left: 0;
+  max-height: 4000%;
+  max-width: 1000%;
+  min-height: 101%;
+  min-width: 100%;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  width: auto;
+  z-index: 0;
+}
+
+a {
+  &.cta {
+    @include better-box;
+    border: 2px solid $callout;
+    color: $callout;
+    font-size: 1.4em;
+    padding: ($half-space / 2) $half-space;
+  }
+}
